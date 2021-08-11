@@ -9,15 +9,27 @@ app.get('/', (_request, response) => {
 });
 
 app.get('/credentials', async (_request, response) => {
-  const credentials = await readCredentials();
-  response.status(200).json(credentials);
+  try {
+    const credentials = await readCredentials();
+    response.status(200).json(credentials);
+  } catch (error) {
+    console.error(error);
+    response
+      .status(500)
+      .send(`There is a problem with the server 🤕 Please try again later.`);
+  }
 });
 
 app.get('/credentials/:service', async (request, response) => {
   const { service } = request.params;
-  const output = await getCredential(service);
-  console.log(`We have a call to ${service}`);
-  response.status(200).json(output);
+  try {
+    const output = await getCredential(service);
+    console.log(`We have a call to ${service}`);
+    response.status(200).json(output);
+  } catch (error) {
+    console.error(error);
+    response.status(404).send(`Could not find ${service} credential.`);
+  }
 });
 
 app.listen(port, () => {
