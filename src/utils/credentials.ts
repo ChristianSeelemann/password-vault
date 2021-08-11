@@ -10,11 +10,34 @@ export async function readCredentials(): Promise<Credential[]> {
 
 export async function getCredential(service: string): Promise<Credential> {
   const credentials = await readCredentials();
-  const credential = credentials.find((item) => item.service === service);
+  const credential = credentials.find(
+    (item) => item.service.toLowerCase() === service.toLowerCase()
+  );
 
   if (!credential) {
     throw new Error(`No credential found for service: ${service}`);
   } else {
     return credential;
   }
+}
+
+export async function addCredential(credential: Credential): Promise<void> {
+  const credentials = await readCredentials();
+  const updatedCredentials = [...credentials, credential];
+  const database: DB = {
+    credentials: [],
+  };
+  database.credentials = updatedCredentials;
+  await fs.writeFile('src/db.json', JSON.stringify(database, null, 2));
+}
+
+export async function deleteCredential(service: string): Promise<void> {
+  const credentials = await readCredentials();
+  const updatedCredentials = credentials.filter(
+    (credential) => credential.service.toLowerCase() !== service.toLowerCase()
+  );
+  const database: DB = {
+    credentials: updatedCredentials,
+  };
+  await fs.writeFile('src/db.json', JSON.stringify(database, null, 2));
 }
