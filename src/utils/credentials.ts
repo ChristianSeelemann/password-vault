@@ -1,3 +1,4 @@
+import CryptoJS from 'crypto-js';
 import fs from 'fs/promises';
 import type { DB, Credential } from '../types';
 
@@ -22,8 +23,14 @@ export async function getCredential(service: string): Promise<Credential> {
 }
 
 export async function addCredential(credential: Credential): Promise<void> {
+  const encryptedPassword = CryptoJS.TripleDES.encrypt(
+    credential.password,
+    'supersecretkey'
+  ).toString();
+  const cryptedCredential = { ...credential, password: encryptedPassword };
+
   const credentials = await readCredentials();
-  const updatedCredentials = [...credentials, credential];
+  const updatedCredentials = [...credentials, cryptedCredential];
   const database: DB = {
     credentials: [],
   };

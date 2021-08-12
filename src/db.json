@@ -9,6 +9,16 @@
       "service": "Neuefischer",
       "username": "jozrk",
       "password": "password"
+    },
+    {
+      "service": "neuefischer",
+      "username": "jozrk",
+      "password": "12345678"
+    },
+    {
+      "service": "neuefischer",
+      "username": "jozrk",
+      "password": "U2FsdGVkX18XrcQcW/WY8C58Vw3RsjnNzlsNSwUOGaw="
     }
   ]
 }
