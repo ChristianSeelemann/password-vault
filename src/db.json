@@ -2,13 +2,13 @@
   "credentials": [
     {
       "service": "Google",
-      "username": "SeChris",
+      "username": "philipp",
       "password": "12345678"
     },
     {
-      "service": "Instagram",
-      "username": "HugeMaleChicken",
-      "password": "12345678"
+      "service": "Neuefischer",
+      "username": "jozrk",
+      "password": "password"
     }
   ]
 }

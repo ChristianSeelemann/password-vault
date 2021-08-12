@@ -41,3 +41,16 @@ export async function deleteCredential(service: string): Promise<void> {
   };
   await fs.writeFile('src/db.json', JSON.stringify(database, null, 2));
 }
+
+export async function updateCredential(
+  service: string,
+  credential: Credential
+): Promise<void> {
+  const credentials = await readCredentials();
+  const oldDB = credentials.filter(
+    (credential) => credential.service !== service
+  );
+  const newDB: DB = { credentials: [...oldDB, credential] };
+  const newJSON = JSON.stringify(newDB, null, 2);
+  fs.writeFile('src/db.json', newJSON, 'utf-8');
+}
