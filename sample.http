@@ -1,0 +1,21 @@
+### Get all credentials
+
+GET http://localhost:3000/credentials
+
+### Get single credential
+
+GET http://localhost:3000/credentials/instagram
+
+### Add single entry
+
+POST http://localhost:3000/credentials
+Content-Type: application/json
+
+{
+  "service": "neuefischer",
+  "username": "jozrk",
+  "password": "password"
+}
+
+### Delete single credential
+DELETE http://localhost:3000/credentials/Neuefischer

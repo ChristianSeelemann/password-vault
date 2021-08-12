@@ -4,6 +4,11 @@
       "service": "Google",
       "username": "SeChris",
       "password": "12345678"
+    },
+    {
+      "service": "Instagram",
+      "username": "HugeMaleChicken",
+      "password": "12345678"
     }
   ]
 }
