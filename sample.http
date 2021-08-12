@@ -19,3 +19,12 @@ Content-Type: application/json
 
 ### Delete single credential
 DELETE http://localhost:3000/credentials/Neuefischer
+
+### Update credential
+PUT http://localhost:3000/credentials/Neuefischer
+
+{
+  "service": "Neuefischer",
+  "username": "123",
+  "password": "456"
+}
