@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import type { DB, Credential } from '../types';
-import { encryptCredential } from './crypto';
+import { encryptCredential, decryptCredential } from './crypto';
 
 export async function readCredentials(): Promise<Credential[]> {
   const response = await fs.readFile('src/db.json', 'utf-8');
@@ -18,7 +18,8 @@ export async function getCredential(service: string): Promise<Credential> {
   if (!credential) {
     throw new Error(`No credential found for service: ${service}`);
   } else {
-    return credential;
+    const decryptedCredential = decryptCredential(credential);
+    return decryptedCredential;
   }
 }
 

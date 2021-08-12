@@ -11,12 +11,7 @@
       "password": "password"
     },
     {
-      "service": "neuefischer",
-      "username": "jozrk",
-      "password": "12345678"
-    },
-    {
-      "service": "neuefischer",
+      "service": "Neuefischer",
       "username": "jozrk",
       "password": "U2FsdGVkX19Vs3h6iefX0XhYIgCsLXMdQypa2YM0AnY="
     }
