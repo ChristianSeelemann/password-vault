@@ -4,7 +4,8 @@ GET http://localhost:3000/credentials
 
 ### Get single credential
 
-GET http://localhost:3000/credentials/instagram
+GET http://localhost:3000/credentials/Neuefischer
+Authorization: {{$dotenv MASTERPASSWORD}}
 
 ### Add single entry
 
@@ -12,7 +13,7 @@ POST http://localhost:3000/credentials
 Content-Type: application/json
 
 {
-  "service": "neuefischer",
+  "service": "Neuefischer",
   "username": "jozrk",
   "password": "password"
 }
