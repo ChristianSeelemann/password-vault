@@ -29,8 +29,7 @@ export async function getCredential(
   if (!credential) {
     throw new Error(`No credential found for service: ${service}`);
   } else {
-    const decryptedCredential = decryptCredential(credential, key);
-    return decryptedCredential;
+    return credential;
   }
 }
 
