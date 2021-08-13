@@ -9,7 +9,10 @@ export async function readCredentials(): Promise<Credential[]> {
   return credentials;
 }
 
-export async function getCredential(service: string): Promise<Credential> {
+export async function getCredential(
+  service: string,
+  key: string
+): Promise<Credential> {
   const credentials = await readCredentials();
   const credential = credentials.find(
     (item) => item.service.toLowerCase() === service.toLowerCase()
@@ -18,14 +21,20 @@ export async function getCredential(service: string): Promise<Credential> {
   if (!credential) {
     throw new Error(`No credential found for service: ${service}`);
   } else {
-    const decryptedCredential = decryptCredential(credential);
+    const decryptedCredential = decryptCredential(credential, key);
     return decryptedCredential;
   }
 }
 
-export async function addCredential(credential: Credential): Promise<void> {
+export async function addCredential(
+  credential: Credential,
+  key: string
+): Promise<void> {
   const credentials = await readCredentials();
-  const updatedCredentials = [...credentials, encryptCredential(credential)];
+  const updatedCredentials = [
+    ...credentials,
+    encryptCredential(credential, key),
+  ];
   const database: DB = {
     credentials: [],
   };
