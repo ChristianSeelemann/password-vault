@@ -2,18 +2,26 @@ import fs from 'fs/promises';
 import type { DB, Credential } from '../types';
 import { encryptCredential, decryptCredential } from './crypto';
 
-export async function readCredentials(): Promise<Credential[]> {
-  const response = await fs.readFile('src/db.json', 'utf-8');
-  const db: DB = JSON.parse(response);
-  const credentials = db.credentials;
-  return credentials;
+export async function readCredentials(key: string): Promise<Credential[]> {
+  try {
+    const response = await fs.readFile('src/db.json', 'utf-8');
+    const db: DB = JSON.parse(response);
+    const credentials = db.credentials;
+    return credentials;
+    const decryptedCredentials = credentials.map((credential) => {
+      return (credential = decryptCredential(credential, key));
+    });
+    return decryptedCredentials;
+  } catch (error) {
+    throw new Error(`Error: ${error}`);
+  }
 }
 
 export async function getCredential(
   service: string,
   key: string
 ): Promise<Credential> {
-  const credentials = await readCredentials();
+  const credentials = await readCredentials(key);
   const credential = credentials.find(
     (item) => item.service.toLowerCase() === service.toLowerCase()
   );
@@ -30,7 +38,7 @@ export async function addCredential(
   credential: Credential,
   key: string
 ): Promise<void> {
-  const credentials = await readCredentials();
+  const credentials = await readCredentials(key);
   const updatedCredentials = [
     ...credentials,
     encryptCredential(credential, key),
@@ -43,7 +51,7 @@ export async function addCredential(
 }
 
 export async function deleteCredential(service: string): Promise<void> {
-  const credentials = await readCredentials();
+  const credentials = await readCredentials(key);
   const updatedCredentials = credentials.filter(
     (credential) => credential.service.toLowerCase() !== service.toLowerCase()
   );
@@ -57,7 +65,7 @@ export async function updateCredential(
   service: string,
   credential: Credential
 ): Promise<void> {
-  const credentials = await readCredentials();
+  const credentials = await readCredentials(key);
   const oldDB = credentials.filter(
     (credential) => credential.service !== service
   );
