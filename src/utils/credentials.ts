@@ -50,7 +50,10 @@ export async function addCredential(
   await fs.writeFile('src/db.json', JSON.stringify(database, null, 2));
 }
 
-export async function deleteCredential(service: string): Promise<void> {
+export async function deleteCredential(
+  service: string,
+  key: string
+): Promise<void> {
   const credentials = await readCredentials(key);
   const updatedCredentials = credentials.filter(
     (credential) => credential.service.toLowerCase() !== service.toLowerCase()
@@ -63,7 +66,8 @@ export async function deleteCredential(service: string): Promise<void> {
 
 export async function updateCredential(
   service: string,
-  credential: Credential
+  credential: Credential,
+  key: string
 ): Promise<void> {
   const credentials = await readCredentials(key);
   const oldDB = credentials.filter(
