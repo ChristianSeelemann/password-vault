@@ -1,14 +1,14 @@
 {
   "credentials": [
     {
-      "service": "Google",
+      "service": "StudiVZ",
       "username": "philipp",
-      "password": "12345678"
+      "password": "U2FsdGVkX19w8M4jBU4mPOQLUmgYf4pe96rYTYps8Xg="
     },
     {
-      "service": "Neuefischer",
-      "username": "jozrk",
-      "password": "U2FsdGVkX19Vs3h6iefX0XhYIgCsLXMdQypa2YM0AnY="
+      "service": "neuefische",
+      "username": "philipp",
+      "password": "U2FsdGVkX1+i/WEmV9h0E2RbWMJFmsSO1Uczdw8XSY0="
     }
   ]
 }

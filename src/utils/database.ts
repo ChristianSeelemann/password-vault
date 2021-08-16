@@ -1,4 +1,4 @@
-import { MongoClient, Collection } from 'mongodb';
+import { Collection, MongoClient } from 'mongodb';
 import type { Credential } from '../types';
 
 let client: MongoClient;
