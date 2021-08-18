@@ -9,8 +9,12 @@ export function encryptCredential(
     credential.password,
     key
   ).toString();
-  const cryptedCredential = { ...credential, password: encryptedPassword };
-  return cryptedCredential;
+
+  const encryptedCredential = {
+    ...credential,
+    password: encryptedPassword,
+  };
+  return encryptedCredential;
 }
 
 export function decryptCredential(
@@ -21,6 +25,11 @@ export function decryptCredential(
     credential.password,
     key
   ).toString(CryptoJS.enc.Utf8);
-  const cryptedCredential = { ...credential, password: decryptedPassword };
-  return cryptedCredential;
+
+  const decryptedCredential = {
+    ...credential,
+    password: decryptedPassword,
+  };
+
+  return decryptedCredential;
 }
