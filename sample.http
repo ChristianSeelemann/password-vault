@@ -1,31 +1,33 @@
 ### Get all credentials
-
-GET http://localhost:3000/credentials
-
-### Get single credential
-
-GET http://localhost:3000/credentials/Neuefischer
+GET http://localhost:3000/api/credentials
 Authorization: {{$dotenv MASTERPASSWORD}}
 
-### Add single entry
+### Get single credential
+GET http://localhost:3000/api/credentials/neuefische
+Authorization: {{$dotenv MASTERPASSWORD}}
 
-POST http://localhost:3000/credentials
+### Add single credential
+POST http://localhost:3000/api/credentials
+Authorization: {{$dotenv MASTERPASSWORD}}
 Content-Type: application/json
 
 {
-  "service": "Neuefischer",
-  "username": "jozrk",
-  "password": "password"
+    "service": "altefische",
+    "username": "philipp",
+    "password": "alterfisch"
 }
 
 ### Delete single credential
-DELETE http://localhost:3000/credentials/Neuefischer
+DELETE http://localhost:3000/api/credentials/altefische
+Authorization: {{$dotenv MASTERPASSWORD}}
 
-### Update credential
-PUT http://localhost:3000/credentials/Neuefischer
+### Replace existing credential
+PATCH http://localhost:3000/api/credentials/altefische
+Authorization: {{$dotenv MASTERPASSWORD}}
+Content-Type: application/json
 
 {
-  "service": "Neuefischer",
-  "username": "123",
-  "password": "456"
+    "service": "altefische",
+    "username": "marvin",
+    "password": "test1234"
 }
