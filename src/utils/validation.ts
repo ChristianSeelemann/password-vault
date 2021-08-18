@@ -6,6 +6,5 @@ export async function validateMasterpassword(
 ): Promise<boolean> {
   const hashedMasterpassword = await readFile('.password', 'utf-8');
   const hashedPassword = CryptoJS.SHA256(password).toString();
-
   return hashedMasterpassword === hashedPassword;
 }
