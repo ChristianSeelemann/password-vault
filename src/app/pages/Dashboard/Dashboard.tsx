@@ -3,17 +3,18 @@ import type { Credential } from '../../../types';
 
 export default function Dashboard(): JSX.Element {
   const [credentials, setCredentials] = useState<Credential[]>([]);
+  const [masterPassword, setMasterpasswort] = useState('');
 
   useEffect(() => {
     async function fetchCredentials() {
       const response = await fetch('/api/credentials', {
-        headers: { Authorization: 'supersecretkey' },
+        headers: { Authorization: masterPassword },
       });
       const credentials = await response.json();
       setCredentials(credentials);
     }
     fetchCredentials();
-  }, []);
+  }, [masterPassword]);
 
   return (
     <main>
@@ -22,9 +23,11 @@ export default function Dashboard(): JSX.Element {
         <label>
           <p>Please log in...</p>
           <input
-            type="text"
+            type="password"
             name="search"
             placeholder="Type your Masterpassword"
+            value={masterPassword}
+            onChange={(event) => setMasterpasswort(event.target.value)}
           />
         </label>
       </div>
