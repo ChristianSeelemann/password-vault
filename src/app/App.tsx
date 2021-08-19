@@ -6,12 +6,16 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 function App(): JSX.Element {
   return (
     <Router>
-      <Link to="/">
-        <li>Dashboard</li>
-      </Link>
-      <Link to="/services">
-        <li>Services</li>
-      </Link>
+      <nav>
+        <ul>
+          <Link to="/">
+            <li>Dashboard</li>
+          </Link>
+          <Link to="/services">
+            <li>Services</li>
+          </Link>
+        </ul>
+      </nav>
       <Switch>
         <Route path="/services">
           <div>Services</div>
