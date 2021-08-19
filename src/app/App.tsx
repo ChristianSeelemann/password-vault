@@ -1,11 +1,17 @@
 import React from 'react';
 import styles from './App.module.css';
 import Dashboard from './pages/Dashboard/Dashboard';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 function App(): JSX.Element {
   return (
     <Router>
+      <Link to="/">
+        <li>Dashboard</li>
+      </Link>
+      <Link to="/services">
+        <li>Services</li>
+      </Link>
       <Switch>
         <Route path="/services">
           <div>Services</div>
