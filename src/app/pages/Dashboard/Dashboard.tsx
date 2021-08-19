@@ -14,6 +14,9 @@ export default function Dashboard(): JSX.Element {
       setCredentials(credentials);
     }
     fetchCredentials();
+    if (!masterPassword) {
+      setCredentials([]);
+    }
   }, [masterPassword]);
 
   return (
@@ -31,7 +34,13 @@ export default function Dashboard(): JSX.Element {
           />
         </label>
       </div>
-      {credentials?.forEach((credential) => console.log(credential))}
+      {credentials?.map((credential) => (
+        <div>
+          <p>{credential.service}</p>
+          <p>{credential.username}</p>
+          <p>{credential.password}</p>
+        </div>
+      ))}
     </main>
   );
 }
