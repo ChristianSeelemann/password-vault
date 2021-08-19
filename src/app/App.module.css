@@ -29,10 +29,11 @@ h2 {
 
 input {
   margin-top: 1.5rem;
+  text-align: center;
   border-radius: 0.5rem;
   border: 0;
   padding: 1rem 0.5rem;
-  width: 15rem;
+  width: 20rem;
   font-size: 1.25rem;
   font-weight: bold;
 }

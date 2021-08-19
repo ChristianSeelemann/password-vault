@@ -7,7 +7,11 @@ export default function Dashboard(): JSX.Element {
       <div>
         <label>
           <p>Which password do you want?</p>
-          <input type="text" name="search" />
+          <input
+            type="text"
+            name="search"
+            placeholder="Search your password..."
+          />
         </label>
       </div>
     </main>
