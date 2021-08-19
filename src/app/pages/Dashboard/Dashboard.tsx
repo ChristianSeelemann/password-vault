@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from '../../App.module.css';
 
 export default function Dashboard(): JSX.Element {
   return (
-    <main className={styles.container}>
+    <main>
       <h2>Dashboard</h2>
       <div>
         <label>

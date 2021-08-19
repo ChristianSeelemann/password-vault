@@ -17,13 +17,15 @@ function App(): JSX.Element {
           </Link>
         </ul>
       </nav>
+      <h1>Password-Vault</h1>
       <Switch>
         <Route path="/password/:service">
-          <Password />
+          <div className={styles.container}>
+            <Password />
+          </div>
         </Route>
         <Route path="/">
           <div className={styles.container}>
-            <h1>Password-Vault</h1>
             <Dashboard />
           </div>
         </Route>

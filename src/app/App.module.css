@@ -18,6 +18,11 @@
   font-weight: bold;
 }
 
+h1 {
+  text-align: center;
+  margin-top: 5rem;
+}
+
 h2 {
   padding-bottom: 2.5rem;
 }
