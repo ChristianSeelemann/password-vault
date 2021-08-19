@@ -1,0 +1,16 @@
+.container {
+  padding-top: 4rem;
+}
+h2 {
+  padding-bottom: 2.5rem;
+}
+
+input {
+  margin-top: 1.5rem;
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 1rem 0.5rem;
+  width: 15rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
