@@ -7,6 +7,9 @@ function App(): JSX.Element {
   return (
     <Router>
       <Switch>
+        <Route path="/services">
+          <div>Services</div>
+        </Route>
         <Route path="/">
           <div className={styles.container}>
             <h1>Password-Vault</h1>
