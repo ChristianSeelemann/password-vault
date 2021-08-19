@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './App.module.css';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Password from './pages/Password/Password';
 
 function App(): JSX.Element {
   return (
@@ -11,14 +12,14 @@ function App(): JSX.Element {
           <Link to="/">
             <li>Dashboard</li>
           </Link>
-          <Link to="/services">
-            <li>Services</li>
+          <Link to="/password/facebook">
+            <li>Passwords</li>
           </Link>
         </ul>
       </nav>
       <Switch>
-        <Route path="/services">
-          <div>Services</div>
+        <Route path="/password/:service">
+          <Password />
         </Route>
         <Route path="/">
           <div className={styles.container}>

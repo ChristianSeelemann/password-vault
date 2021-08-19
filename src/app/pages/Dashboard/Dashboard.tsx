@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Dashboard.module.css';
+import styles from '../../App.module.css';
 
 export default function Dashboard(): JSX.Element {
   return (
