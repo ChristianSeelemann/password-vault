@@ -6,11 +6,11 @@ export default function Dashboard(): JSX.Element {
       <h2>Dashboard</h2>
       <div>
         <label>
-          <p>Which password do you want?</p>
+          <p>Please log in...</p>
           <input
             type="text"
             name="search"
-            placeholder="Search your password..."
+            placeholder="Type your Masterpassword"
           />
         </label>
       </div>

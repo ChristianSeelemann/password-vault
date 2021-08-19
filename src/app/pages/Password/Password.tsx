@@ -6,7 +6,7 @@ export default function Password(): JSX.Element {
   return (
     <main>
       <h2>Passwords</h2>
-      <div>Password is: {service}</div>
+      <div>Service is: {service}</div>
     </main>
   );
 }
