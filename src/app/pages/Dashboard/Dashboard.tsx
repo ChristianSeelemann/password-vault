@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { Credential } from '../../../types';
+import List from '../../components/List';
 
 export default function Dashboard(): JSX.Element {
   const [credentials, setCredentials] = useState<Credential[]>([]);
@@ -34,13 +35,7 @@ export default function Dashboard(): JSX.Element {
           />
         </label>
       </div>
-      {credentials?.map((credential) => (
-        <div>
-          <p>{credential.service}</p>
-          <p>{credential.username}</p>
-          <p>{credential.password}</p>
-        </div>
-      ))}
+      <List credentials={credentials} />
     </main>
   );
 }
