@@ -1,41 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import type { Credential } from '../../../types';
-import List from '../../components/List';
+import React, { useState, useEffect } from 'react';
+import { RiLockPasswordLine } from 'react-icons/ri';
+import { AiFillEye } from 'react-icons/ai';
+import styles from './Dashboard.module.css';
+import { useHistory } from 'react-router-dom';
 
 export default function Dashboard(): JSX.Element {
-  const [credentials, setCredentials] = useState<Credential[]>([]);
-  const [masterPassword, setMasterpasswort] = useState('');
+  const [masterPassword, setMasterPassword] = useState('');
+  const history = useHistory();
 
   useEffect(() => {
-    async function fetchCredentials() {
-      const response = await fetch('/api/credentials', {
-        headers: { Authorization: masterPassword },
-      });
-      const credentials = await response.json();
-      setCredentials(credentials);
-    }
-    fetchCredentials();
-    if (!masterPassword) {
-      setCredentials([]);
+    if (masterPassword === 'supersecretkey') {
+      history.push('/credentials');
     }
   }, [masterPassword]);
 
   return (
-    <main>
-      <h2>Dashboard</h2>
-      <div>
+    <main className={styles.main}>
+      <h1>
+        <RiLockPasswordLine />
+        Vault
+      </h1>
+      <div className={styles.login}>
+        <p>Please log in...</p>
         <label>
-          <p>Please log in...</p>
           <input
             type="password"
             name="search"
-            placeholder="Type your Masterpassword"
+            placeholder="Masterpassword"
             value={masterPassword}
-            onChange={(event) => setMasterpasswort(event.target.value)}
+            onChange={(event) => {
+              setMasterPassword(event.target.value);
+            }}
+            className={styles.input}
           />
+          <span>
+            <AiFillEye />
+          </span>
         </label>
       </div>
-      <List credentials={credentials} />
+      <footer>
+        <p>Please dont use this on a public computer!</p>
+      </footer>
     </main>
   );
 }

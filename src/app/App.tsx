@@ -1,31 +1,31 @@
 import React from 'react';
-import styles from './App.module.css';
 import Dashboard from './pages/Dashboard/Dashboard';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Password from './pages/Password/Password';
+import Credentials from './pages/Credentials/Credentials';
+import Add from './pages/Add/Add';
 
 function App(): JSX.Element {
   return (
     <Router>
-      <nav className={styles.navigation}>
-        <ul>
-          <Link to="/">
-            <li>Dashboard</li>
-          </Link>
-          <Link to="/password/facebook">
-            <li>Passwords</li>
-          </Link>
-        </ul>
-      </nav>
-      <h1>Password-Vault</h1>
       <Switch>
         <Route path="/password/:service">
-          <div className={styles.container}>
+          <div className="container">
             <Password />
           </div>
         </Route>
+        <Route path="/credentials/add">
+          <div className="container">
+            <Add />
+          </div>
+        </Route>
+        <Route path="/credentials">
+          <div className="container">
+            <Credentials />
+          </div>
+        </Route>
         <Route path="/">
-          <div className={styles.container}>
+          <div className="container">
             <Dashboard />
           </div>
         </Route>

@@ -1,15 +1,12 @@
 import React from 'react';
 import type { Credential } from '../../types';
+import ListItem from './ListItem';
 
 function List({ credentials }): JSX.Element {
   return (
     <>
       {credentials?.map((credential: Credential) => (
-        <div>
-          <p>{credential.service}</p>
-          <p>{credential.username}</p>
-          <p>{credential.password}</p>
-        </div>
+        <ListItem credential={credential} />
       ))}
     </>
   );
