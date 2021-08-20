@@ -1,0 +1,57 @@
+.main {
+  height: 100vh;
+  width: 100vw;
+}
+
+.inputSection {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputSection label {
+  font-weight: bold;
+}
+
+.inputSection input {
+  width: 80%;
+  margin: 1.25rem 0 2.5rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
+}
+
+.inputSection hr {
+  width: 50%;
+  margin: auto;
+  border: 2px solid #443363;
+}
+
+.send {
+  background: rgb(150, 43, 255);
+  background: linear-gradient(321deg, rgb(122 0 255) 0%, rgb(141 75 202) 100%);
+  display: flex;
+  align-self: center;
+  width: 80%;
+  text-align: center;
+  justify-content: center;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
+}
+
+.send svg {
+  margin-right: 0.75rem;
+  position: relative;
+  top: 0.05rem;
+  font-size: 1.25rem;
+}

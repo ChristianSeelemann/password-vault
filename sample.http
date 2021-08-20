@@ -12,9 +12,9 @@ Authorization: {{$dotenv MASTERPASSWORD}}
 Content-Type: application/json
 
 {
-    "service": "altefische",
-    "username": "philipp",
-    "password": "alterfisch"
+    "service": "frischefische",
+    "username": "paul",
+    "password": "frischerfisch"
 }
 
 ### Delete single credential

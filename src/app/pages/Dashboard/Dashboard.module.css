@@ -1,3 +1,54 @@
-.placeholder {
-  background-color: red;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+h1 {
+  padding-top: 4rem;
+}
+
+footer {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: rgb(104, 97, 129);
+  padding-bottom: 1rem;
+}
+
+label {
+  position: relative;
+}
+
+label span {
+  position: absolute;
+  right: 1.15rem;
+  top: -0.22rem;
+}
+
+label span svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgb(135, 111, 202);
+}
+
+.login p {
+  font-size: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+.input {
+  text-align: left;
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 1.2rem 3.5rem 1rem 1.5rem;
+  width: 20rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: rgb(95, 77, 124);
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+.input::placeholder {
+  color: rgb(211, 203, 224);
 }
