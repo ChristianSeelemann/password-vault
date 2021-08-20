@@ -7,7 +7,7 @@ import Password from './pages/Password/Password';
 function App(): JSX.Element {
   return (
     <Router>
-      <nav className={styles.navigation}>
+      {/*       <nav className={styles.navigation}>
         <ul>
           <Link to="/">
             <li>Dashboard</li>
@@ -16,8 +16,8 @@ function App(): JSX.Element {
             <li>Passwords</li>
           </Link>
         </ul>
-      </nav>
-      <h1>Password-Vault</h1>
+      </nav> */}
+      <h1>Vault</h1>
       <Switch>
         <Route path="/password/:service">
           <div className={styles.container}>
